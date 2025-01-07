@@ -95,10 +95,16 @@ def find_gcd(x, y):
     return x
 
 def find_list_gcd(num_list):
-    result = num_list[0]
-    for num in num_list[1:]:
-        result = find_gcd(result, num)
-    return result
+    _num_list = sorted(num_list, reverse=True)
+    while _num_list[1]:
+        print(_num_list)
+        _num_list = _num_list[:1] + [x % _num_list[0] for x in num_list[1:]]
+        _num_list = sorted(_num_list)
+    return _num_list
+    # result = num_list[0]
+    # for num in num_list[1:]:
+    #     result = find_gcd(result, num)
+    # return result
 
 class Node:
     def __init__(self, data):
